@@ -1,0 +1,25 @@
+package org.example.payrollservice.payrolll_model;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+
+@Entity
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class BonusDbo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private BigDecimal amount;
+    private String reason;
+
+    @ManyToOne
+    @JoinColumn(name = "payroll_id")
+    private PayrollDbo payroll;
+}
