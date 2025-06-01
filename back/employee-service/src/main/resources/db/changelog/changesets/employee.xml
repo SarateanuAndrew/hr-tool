@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="add_employee_table" author="dev" failOnError="true">
+        <sql>
+            create table employee_dbo
+            (
+                dob           date,
+                hire_date     date,
+                department_id bigint,
+                id            bigint not null,
+                position_id   bigint,
+                address       varchar(255),
+                email         varchar(255),
+                gender        varchar(255),
+                name          varchar(255),
+                phone         varchar(255),
+                status        varchar(255),
+                primary key (id)
+            );
+
+            alter table if exists employee_dbo
+                add constraint FKdpnedk7k3nxrrw0s6dg6kipo
+                foreign key (department_id)
+                references department_dbo;
+
+            alter table if exists employee_dbo
+                add constraint FKm7mlcawjs2pb1yxq3mal47cfu
+                foreign key (position_id)
+                references position_dbo;
+            create sequence employee_dbo_seq start with 1 increment by 50;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

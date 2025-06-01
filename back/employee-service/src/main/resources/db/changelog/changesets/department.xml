@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="add_department_table" author="dev" failOnError="true">
+        <sql>
+            create table department_dbo
+            (
+                id          bigint not null,
+                description varchar(255),
+                name        varchar(255),
+                primary key (id)
+            );
+            create sequence department_dbo_seq start with 1 increment by 50;
+        </sql>
+    </changeSet>
+</databaseChangeLog>
