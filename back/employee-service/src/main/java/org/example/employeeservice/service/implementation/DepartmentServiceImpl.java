@@ -21,21 +21,21 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public List<DepartmentResponseFindDto> getAllDepartments(int page, int size) {
-        Page<DepartmentDbo> allDepartments = departmentRepository.getAllDepartments(PageRequest.of(page, size));
-        if (allDepartments.hasContent()) {
-            return allDepartments.stream()
-                    .map(departmentDbo -> DepartmentResponseFindDto.builder()
-                            .name(departmentDbo.getName())
-                            .description(departmentDbo.getDescription())
-                            .build())
-                    .toList();
-        }
+//        Page<DepartmentDbo> allDepartments = departmentRepository.getAllDepartments(PageRequest.of(page, size));
+//        if (allDepartments.hasContent()) {
+//            return allDepartments.stream()
+//                    .map(departmentDbo -> DepartmentResponseFindDto.builder()
+//                            .name(departmentDbo.getName())
+//                            .description(departmentDbo.getDescription())
+//                            .build())
+//                    .toList();
+//        }
         return null;
     }
 
     @Override
     public DepartmentResponseFindDto getDepartmentById(Long id) {
-        Optional<DepartmentDbo> departmentById = departmentRepository.getDepartmentById(id);
+//        Optional<DepartmentDbo> departmentById = departmentRepository.getDepartmentById(id);
         return null;
     }
 
